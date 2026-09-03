@@ -53,6 +53,7 @@ function splitStrings(ArrayOfStrings: Object[]) {
     ArrayOfStrings[i].feature = result;
   }
 }
+
 function finalChecking(ArrayOfStrings: Object[]): number {
   let result: number = 0;
   for (let i = 0; i < ArrayOfStrings.length; i++) {
@@ -62,5 +63,15 @@ function finalChecking(ArrayOfStrings: Object[]): number {
   return result;
 }
 splitStrings(result);
-const final = finalChecking(result);
-console.log(final);
+
+// PART TWO
+function calculatePossibleGames(objArray: Object[]): number {
+  let result: number = 0;
+  for (let i: number = 0; i < objArray.length; i++) {
+    const currentArray = objArray[i].feature;
+    result += currentArray.red * currentArray.blue * currentArray.green;
+  }
+  return result;
+}
+let possibleGames = calculatePossibleGames(result);
+console.log(possibleGames);
